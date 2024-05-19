@@ -7,13 +7,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        UserAdapter userAdapter = new UserAdapter(myUser_List, this);
 
         User user = new User("MAD", "MAD Developer", 1, false);
         TextView tvName = findViewById(R.id.tvName);
