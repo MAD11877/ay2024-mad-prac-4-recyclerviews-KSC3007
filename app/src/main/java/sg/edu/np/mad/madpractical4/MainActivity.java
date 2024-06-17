@@ -27,12 +27,11 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        UserAdapter userAdapter = new UserAdapter(myUser_List, this);
+        UserAdapter userAdapter = new UserAdapter(User, this);
 
         User user = new User("MAD", "MAD Developer", 1, false);
         TextView tvName = findViewById(R.id.tvName);
         TextView tvDescription = findViewById(R.id.tvDescription);
-        Button btnFollow = findViewById(R.id.btnFollow);
 
         tvName.setText(user.name);
         tvDescription.setText(user.description);
@@ -44,14 +43,14 @@ public class MainActivity extends AppCompatActivity {
         btnFollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (user.followed) {
-                    user.followed = false;
+                if (user.isfollowed) {
+                    user.isfollowed = false;
                     btnFollow.setText("Unfollow");
                     Toast.makeText(MainActivity.this, "Followed", Toast.LENGTH_SHORT).show();
                 }
 
                 else {
-                    user.followed = true;
+                    user.isfollowed = true;
                     btnFollow.setText("Follow");
                     Toast.makeText(MainActivity.this, "Unfollowed", Toast.LENGTH_SHORT).show();
                 }
