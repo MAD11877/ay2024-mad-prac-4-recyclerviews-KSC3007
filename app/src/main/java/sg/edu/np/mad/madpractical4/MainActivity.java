@@ -26,30 +26,29 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        User user = new User("MAD", "MAD Developer", 1, false);
         TextView tvName = findViewById(R.id.tvName);
         TextView tvDescription = findViewById(R.id.tvDescription);
         Button btnFollow = findViewById(R.id.btnFollow);
 
-        tvName.setText(user.name);
-        tvDescription.setText(user.description);
+        // Retrieve the User object passed from ListActivity
+        User user = (User) getIntent().getSerializableExtra("USER");
 
-
-        String newName = getIntent().getStringExtra("MAD");
-
-        tvName.setText("MAD " + newName);
+        if (user != null) {
+            tvName.setText(user.getName());
+            tvDescription.setText(user.getDescription());
+        }
 
         btnFollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (user.isfollowed) {
-                    user.isfollowed = false;
+                if (user.followed) {
+                    user.followed = false;
                     btnFollow.setText("Unfollow");
                     Toast.makeText(MainActivity.this, "Followed", Toast.LENGTH_SHORT).show();
                 }
 
                 else {
-                    user.isfollowed = true;
+                    user.followed = true;
                     btnFollow.setText("Follow");
                     Toast.makeText(MainActivity.this, "Unfollowed", Toast.LENGTH_SHORT).show();
                 }

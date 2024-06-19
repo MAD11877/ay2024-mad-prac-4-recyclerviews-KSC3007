@@ -1,26 +1,28 @@
 package sg.edu.np.mad.madpractical4;
+import java.io.Serializable;
 
-public class User {
+public class User implements Serializable {
     public String name;
     public String description;
-    public int image;
-    public boolean isfollowed;
+    public int id;
+    public boolean followed;
 
-
-    public Integer getImage() {return image;}
     public String getName() {return name;}
     public String getDescription() {return description;}
-    public boolean getFollowed() {return isfollowed;}
+    public int getId() {return id;}
+    public Boolean getFollowed() {return followed;}
 
-    public void setImage(int image) {this.image = image;}
     public void setName(String username) {this.name = username;}
     public void setDescription(String description) {this.description = description;}
-    public void setFollowed(boolean followed) {this.isfollowed = followed;}
+    public void setId(int id) {this.id = id;}
+    public void setFollowed(Boolean followed) {this.followed = followed;}
 
-    public User(String name, String description, int image, boolean followed){
+
+
+    public User(String name, String description, int id, boolean followed) {
         this.name = name;
         this.description = description;
-        this.image = image;
-        this.isfollowed = isfollowed;
+        this.id = id;
+        this.followed = followed;
     }
 }
