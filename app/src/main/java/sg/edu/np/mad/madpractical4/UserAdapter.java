@@ -55,7 +55,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.context = context;
             name = itemView.findViewById(R.id.tvName);
             description = itemView.findViewById(R.id.tvDescription);
             smallImage = itemView.findViewById(R.id.ivSmallImage);

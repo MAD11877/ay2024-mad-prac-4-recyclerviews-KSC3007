@@ -66,11 +66,9 @@ public class ListActivity extends AppCompatActivity {
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(userAdapter);
             } else {
-                // Handle the case where some data is missing
                 Log.e("ListActivity", "Some data is missing in myUserList");
             }
         } else {
-            // Handle the case where myUserList is null or does not contain 20 users
             Log.e("ListActivity", "myUserList is null or does not contain 20 users");
         }
 
