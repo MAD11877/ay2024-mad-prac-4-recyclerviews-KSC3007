@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -27,14 +26,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        UserAdapter userAdapter = new UserAdapter(User, this);
-
         User user = new User("MAD", "MAD Developer", 1, false);
         TextView tvName = findViewById(R.id.tvName);
         TextView tvDescription = findViewById(R.id.tvDescription);
+        Button btnFollow = findViewById(R.id.btnFollow);
 
         tvName.setText(user.name);
         tvDescription.setText(user.description);
+
 
         String newName = getIntent().getStringExtra("MAD");
 
