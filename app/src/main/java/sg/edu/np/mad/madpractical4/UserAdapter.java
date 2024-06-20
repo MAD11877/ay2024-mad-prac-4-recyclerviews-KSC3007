@@ -34,6 +34,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.name.setText(myUserList.get(position).getName());
         holder.description.setText(myUserList.get(position).getDescription());
 
+        // Show or hide the large image based on the last digit of the name
+        if (myUserList.get(position).getName().endsWith("7")) {
+            holder.largeImage.setVisibility(View.VISIBLE);
+        } else {
+            holder.largeImage.setVisibility(View.GONE);
+        }
+
         holder.smallImage.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
             builder.setTitle("Profile");
