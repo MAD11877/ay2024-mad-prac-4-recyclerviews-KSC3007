@@ -7,33 +7,26 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
-import java.util.Random;
-
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.view.View;
-import android.widget.ImageView;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
 
     Context context;
-    List<User> myUserList;
+    private List<User> myUserList;
 
-    public UserAdapter(List<User> myUserList) {
+    public UserAdapter(Context context, List<User> users) {  // Accept context
         this.context = context;
-        this.myUserList = myUserList;
+        myUserList = users;
     }
 
+    @NonNull
     @Override
-    public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new UserViewHolder(LayoutInflater.from(context).inflate(R.layout.custom_activity_list, parent, false));
+    public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new UserViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_activity_list, parent, false));
     }
 
     @Override
@@ -42,7 +35,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.description.setText(myUserList.get(position).getDescription());
 
         holder.smallImage.setOnClickListener(v -> {
-            //Implement the AlertDialog here
             AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
             builder.setMessage(myUserList.get(position).getName())
                     .setPositiveButton("View", (dialog, id) -> {
@@ -77,8 +69,4 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         String name = myUserList.get(position).getName();
         return name.endsWith("7") ? 1 : 0;
     }
-
-    //int layout = viewType == 1 ? R.layout.custom_activity_list_special : R.layout.custom_activity_list;
-    //View view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
-    //    return new UserViewHolder(view);
 }
