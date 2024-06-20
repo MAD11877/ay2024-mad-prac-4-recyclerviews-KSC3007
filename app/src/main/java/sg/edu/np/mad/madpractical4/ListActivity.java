@@ -8,15 +8,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class ListActivity extends AppCompatActivity {
 
-
-    private UserAdapter userAdapter;
-
+    public UserAdapter userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +30,23 @@ public class ListActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView1);
 
-        ArrayList<User> myUserList;
-        myUserList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            int nameRandomNo = new Random().nextInt(999999999);
-            int descRandomNo = new Random().nextInt(999999999);
-            boolean followed = new Random().nextBoolean();
+        List<User> myUserList = new ArrayList<User>();
 
+        for (int i = 0; i < 20; i++) {
             User user = new User("Shan Chun", "MAD Developer", 1, false);
+            int nameRandomNo = new Random().nextInt(999999999);
             user.setName("Name"+String.valueOf(nameRandomNo));
+
+            int descRandomNo = new Random().nextInt(999999999);
             user.setDescription("Description "+String.valueOf(descRandomNo));
+
+            boolean followed = new Random().nextBoolean();
             user.setFollowed(followed);
+
             myUserList.add(user);
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //recyclerView.setAdapter(new MyAdapter(getApplicationContext(),user));
+        recyclerView.setAdapter(userAdapter);
 
     }
 }
