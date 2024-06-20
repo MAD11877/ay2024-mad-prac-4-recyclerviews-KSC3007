@@ -35,22 +35,15 @@ public class MainActivity extends AppCompatActivity {
         if (user != null) {
             tvName.setText(user.getName());
             tvDescription.setText(user.getDescription());
+            btnFollow.setText(user.followed ? "Unfollow" : "Follow");
         }
 
         btnFollow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (user.followed) {
-                    user.followed = false;
-                    btnFollow.setText("Unfollow");
-                    Toast.makeText(MainActivity.this, "Followed", Toast.LENGTH_SHORT).show();
-                }
-
-                else {
-                    user.followed = true;
-                    btnFollow.setText("Follow");
-                    Toast.makeText(MainActivity.this, "Unfollowed", Toast.LENGTH_SHORT).show();
-                }
+                user.followed = !user.followed;
+                btnFollow.setText(user.followed ? "Unfollow" : "Follow");
+                Toast.makeText(MainActivity.this, user.followed ? "Followed" : "Unfollowed", Toast.LENGTH_SHORT).show();
             }
         });
     }
