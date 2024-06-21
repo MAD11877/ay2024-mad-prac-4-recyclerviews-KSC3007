@@ -5,7 +5,6 @@ plugins {
 android {
     namespace = "sg.edu.np.mad.madpractical4"
     compileSdk = 34
-    buildToolsVersion = "29.0.3"
 
 
     defaultConfig {
