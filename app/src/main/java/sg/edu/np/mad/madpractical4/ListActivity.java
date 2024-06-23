@@ -33,7 +33,7 @@ public class ListActivity extends AppCompatActivity {
             int nameRandomNo = new Random().nextInt(999999999);
             int descRandomNo = new Random().nextInt(999999999);
             boolean followed = new Random().nextBoolean();
-            myUserList.add(new User("Name"+String.valueOf(nameRandomNo), "Description "+String.valueOf(descRandomNo), i+1, followed));
+            myUserList.add(new User("Name"+(nameRandomNo), "Description "+(descRandomNo), i+1, followed));
         }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
