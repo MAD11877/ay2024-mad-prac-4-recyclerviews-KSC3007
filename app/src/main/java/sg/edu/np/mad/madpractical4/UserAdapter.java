@@ -30,16 +30,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = myUserList.get(position);
-        holder.name.setText(user.getName());
-        holder.description.setText(user.getDescription());
+        holder.textView_name.setText(user.getName());
+        holder.textView_description.setText(user.getDescription());
 
         if (user.getName().endsWith("7")) {
-            holder.largeImage.setVisibility(View.VISIBLE);
+            holder.imageView_large_user.setVisibility(View.VISIBLE);
         } else {
-            holder.largeImage.setVisibility(View.GONE);
+            holder.imageView_large_user.setVisibility(View.GONE);
         }
 
-        holder.smallImage.setOnClickListener(v -> {
+        holder.imageView_user.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
             builder.setTitle("Profile");
             builder.setMessage(user.getName())
