@@ -10,42 +10,42 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {
-    public ImageView imageView_user,  imageView_large_user;
-    public TextView textView_name;
-    public TextView textView_description;
-
+    ImageView imageView_user,  imageView_large_user;
+    TextView textView_name;
+    TextView textView_description;
     private User user;
+
     public UserViewHolder(@NonNull View itemView) {
         super(itemView);
         imageView_user = itemView.findViewById(R.id.imageView_user);
+        imageView_large_user = itemView.findViewById(R.id.imageView_large_user);
         textView_name = itemView.findViewById(R.id.textView_name);
         textView_description = itemView.findViewById(R.id.textView_description);
-        imageView_large_user = itemView.findViewById(R.id.imageView_large_user);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
                 builder.setMessage(textView_name.getText().toString())
-                        .setTitle("User Info")
+                    .setTitle("User Info")
 
-                        .setPositiveButton("View", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Context context = v.getContext();
-                                Intent intent = new Intent(context, MainActivity.class);
-                                intent.putExtra("user", user);
-                                context.startActivity(intent);
-                            }
-                        })
+                    .setPositiveButton("View", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Context context = v.getContext();
+                            Intent intent = new Intent(context, MainActivity.class);
+                            intent.putExtra("user", user);
+                            context.startActivity(intent);
+                        }
+                    })
 
-                        .setNegativeButton("Close", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // Dismiss the dialog
-                                dialog.dismiss();
-                            }
-                        });
+                    .setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Dismiss the dialog
+                            dialog.dismiss();
+                        }
+                    });
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }
