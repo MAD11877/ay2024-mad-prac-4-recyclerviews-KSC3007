@@ -10,9 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {
-    ImageView imageView_user,  imageView_large_user;
-    TextView textView_name;
-    TextView textView_description;
+    public ImageView imageView_user,  imageView_large_user;
+    public TextView textView_name;
+    public TextView textView_description;
     private User user;
 
     public UserViewHolder(@NonNull View itemView) {
